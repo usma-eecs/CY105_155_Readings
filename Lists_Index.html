@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Lists: A Collection Data Type</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/monokai.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <h2>Index Operator: Working with the Items of a List</h2>
+        <p>The <strong>indexing operator</strong> (Python uses square brackets to enclose the index) selects a single
+            item from a list. The items are accessed by their position or index value. For example, in the list shown
+            below, the 10 characters are indexed left to right from position 0 to position 9.</p>
+        <p><span style="vertical-align: middle; width: 100%;"> <img
+                    style="display: block; margin-left: auto; margin-right: auto;"
+                    src="Images/Lists_Indexing_IndexPositions.png" alt="index" width="733"
+                    height="114" /> </span></p>
+        <p>It is also the case that the positions are named from right to left using negative numbers where -1 is the
+            rightmost index and so on. Note that the character at index 4 (or -6) is the blank character.</p>
+        <p><iframe title="embedded content" src="https://replit.com/@EECSCY105/StringsListsTab02indexing?lite=true"
+                width="100%" height="400px"
+                sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"
+                allowfullscreen="allowfullscreen"></iframe>The expression <span
+                style="color: #ff0000; background-color: #c0c0c0;">school[2]</span> selects the character at index 2
+            from <span style="color: #ff0000; background-color: #c0c0c0;">school</span>, stores the single character in
+            a <span style="color: #ff0000; background-color: #c0c0c0;">char</span>.</p>
+        <p>Remember that computer scientists often start counting from zero. The letter at index zero of <span><code class="language-python">["W", "e", "s", "t", " ", "P", "o", "i", "n","t"]</code></span> <span style="color: #ff0000; background-color: #c0c0c0;">W</span>. So at position
+            [2] we have the letter <span style="color: #ff0000; background-color: #c0c0c0;">s</span>.</p>
+        <p>If you want the zero-eth item of a list, you just put 0, or any expression with the value 0, in the brackets.
+            Give it a try.</p>
+        <p>The expression in brackets is called an <strong>index</strong>. An index specifies a member of an ordered
+            collection. In this case the collection of characters in the list. The index <em>indicates</em> which
+            character you want. It can be any integer expression so long as it evaluates to a valid index value.</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/script.js"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>
