@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Range Function</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>It turns out that generating lists with a specific number of integers is a very common thing to do,
+            especially when you want to write simple <span><code class="language-python">for</code></span> loop controlled iteration. Even
+            though you can use any four items, or any four integers for that matter, the conventional thing to do is to
+            use a list of integers starting with <span class = "emph">0</span>. In fact, these lists are so popular that Python gives us special
+            built-in <span><code class="language-python">range()</code></span> objects that can deliver a sequence of values to the
+            <span><code class="language-python">for</code></span> loop. When called with one parameter, the sequence provided by
+            <span><code class="language-python">range()</code></span> always starts with <span class = "emph">0</span>. If you ask for <span><code class="language-python">range(4)</code></span>,
+            then you will get <span class = "emph">4</span> values starting with <span class = "emph">0</span>. In other words, <span class = "emph">0, 1, 2, and 3</span>. 
+            Notice that <span class = "emph">4</span> is not included since we started with <span class = "emph">0</span>. Likewise, 
+            <span><code class="language-python">range(10)</code></span> provides <span class = "emph">10</span> values, <span class = "emph">0</span> 
+            through <span class = "emph">9</span>.</p>
+            <pre><code class="language-python">for i in range(4):
+        # Executes the body with i = 0, then 1, then 2, then 3
+for x in range(10):
+    # sets x to each of ... [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+        <p><span style="background-color: #bfedd2;">Note: Computer scientists like to count from 0!</span></p>
+        <p>So to repeat something four times, a good Python programmer would do this:</p>
+        <pre><code class="language-python">for i in range(4):
+    alex.forward(50)
+    alex.left(90)</code></pre>
+        <p>The <span><code class="language-python">range()</code></span> function is actually a very powerful function
+            when it comes to creating sequences of integers. It can take one, two, or three parameters. We have seen the
+            simplest case of one parameter such as <span><code class="language-python">range(4)</code></span>which
+            creates<span><code class="language-python">[0, 1, 2, 3]</code></span>. But what if we really want to have the
+            sequence <span><code class="language-python">[1, 2, 3, 4]</code></span>? We can do this by using a two parameter version
+            of <span><code class="language-python">range()</code></span> where the first parameter is the starting point and the second
+            parameter is the ending point. The evaluation of<span><code class="language-python">range(1, 5)</code></span>produces 
+            the desired sequence. What happened to the 5? In this case we interpret the parameters of the range function to 
+            mean <span><code class="language-python">range(start,beyondLast)</code></span>, where <strong>beyondLast</strong> 
+            means an index past the last index we want. In the 2-parameter version of range, that is the last index included + 1.</p>
+        <p>Here are a two examples for you to run. Try them and then add another line below to create a sequence
+            starting at <span class = "emph">10</span> and going up to <span class = "emph">20</span> (including <span class = "emph">20</span>).</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationRange1"></iframe></p>
+        <p>Finally, suppose we want to have a sequence of even numbers. How would we do that? Easy, we add another
+                parameter, a <strong>step</strong>, that tells range what to count by. For even numbers we want to start at 0 and count
+                by 2s. So if we wanted the first 10 even numbers we would use <span><code class="language-python">range(0,19,2)</code></span>. 
+                The most general form of the range is <span><code class="language-python">range(start, beyondLast, step)</code></span>. 
+                You can also create a sequence of numbers that starts big and gets smaller by using a negative value for the step parameter.</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationRange2"></iframe></p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

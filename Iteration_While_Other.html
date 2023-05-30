@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Other Uses of While</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <h3>Sentinel Values</h3>
+        <p>Indefinite loops are much more common in the real world than definite loops.</p>
+        <ul>
+            <li>If you are selling tickets to an event, you don't know in advance how many tickets you will sell. You
+                keep selling tickets as long as people come to the door and there's room in the hall.</li>
+            <li>When the baggage crew unloads a plane, they don't know in advance how many suitcases there are. They
+                just keep unloading while there are bags left in the cargo hold. (Why <em>your</em> suitcase is always
+                the last one is an entirely different problem.)</li>
+            <li>When you go through the checkout line at the grocery, the clerks don't know in advance how many items
+                there are. They just keep ringing up items as long as there are more on the conveyor belt.</li>
+        </ul>
+        <p>Let's implement the last of these in Python, by asking the user for prices and keeping a running total and
+            count of items. When the last item is entered, the program gives the grand total, number of items, and
+            average price. We'll need these variables:</p>
+        <ul>
+            <li>total - this will start at zero</li>
+            <li>count - the number of items, which also starts at zero</li>
+            <li>moreItems - a boolean that tells us whether more items are waiting; this starts as True</li>
+        </ul>
+        <p>The pseudocode (code written half in English, half in Python) for the body of the loop looks something like
+            this:</p>
+        <pre><code>while moreItems
+    #ask for price
+    #add price to total
+    #add one to count</code></pre>
+        <p>This pseudocode has no option to set moreItems to False, so it would run forever. In a grocery store, there's
+            a little plastic bar that you put after your last item to separate your groceries from those of the person
+            behind you; that's how the clerk knows you have no more items. We don't have a "little plastic
+            bar" data type in Python, so we'll do the next best thing: we will use a price of zero to mean
+            "this is my last item." In this program, zero is a <strong>sentinel value</strong>, a value used
+            to signal the end of the loop. Here's the code:</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationWhileSentinel"></iframe></p>
+        <p>There are still a few problems with this program.</p>
+        <ul>
+            <li>If you enter a negative number, it will be added to the total and count. <strong>Modify the code</strong> so that
+                negative numbers give an error message instead (but don't end the loop) Hint: elif is your friend.</li>
+            <li>If you enter zero the first time you are asked for a price, the loop will end, and the program will try
+                to divide by zero. Use an if/else statement outside the loop to avoid the division by zero and tell the
+                user that you can't compute an average without data.</li>
+            <li>This program doesn't display the amounts to two decimal places.</li>
+        </ul>
+        <h3>Validating Input</h3>
+        <p>You can also use a while loop when you want to <strong>validate</strong> input; when you want to make sure
+            the user has entered valid input for a prompt. Let's say you want a function that asks a yes-or-no question.
+            In this case, you want to make sure that the person using your program enters either a Y for yes or N for no. 
+            Here is a program that uses a while loop to keep asking until it receives a
+            valid answer. When you run the following code, try typing something other than Y or N to see how the code reacts:</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationWhileInput"></iframe></p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

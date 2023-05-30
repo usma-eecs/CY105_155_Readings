@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The While Loop</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+    <p>
+        There is another Python statement that can also be used to build an iteration. It is called the <span><code class="language-python">while</code></span>
+        statement. The <span><code class="language-python">while</code></span> statement provides a much more general mechanism 
+        for iterating. Similar to a repeated  <span><code class="language-python">if</code></span> statement, it uses a
+        <strong>boolean</strong> expression to control the flow of execution. The body of while will be repeated as long as the controlling boolean
+            expression evaluates to  <span><code class="language-python">True</code></span>.
+    </p>
+    <p>The following figure shows the flow of control.</p>
+    <p><img src="Images/While_Loop_Flow.png" alt="While Flow" height="400" /></p>
+    <p>We can use the <span><code class="language-python">while</code></span> loop to create any type of iteration we
+        wish, including anything that we have previously done with a  <span><code class="language-python">for</code></span> loop. 
+        For example, the program in the previous section could be rewritten using  <span><code class="language-python">while</code></span>.
+        Instead of relying on the  <span><code class="language-python">range()</code></span> function to produce the numbers for our summation, 
+        we will need to produce them ourselves. To to this, we will create a variable named  <span><code class="language-python">a_number</code></span>
+        and initialize (set it's initial value) it to <span class ="emph">1</span>, the first number in the summation. Every iteration will add <span><code class="language-python">a_number</code></span>
+        to the running total until all the values have been used. In order to control the iteration, we must create a
+        boolean expression that evaluates to <span><code class="language-python">True</code></span> as long as we want to keep adding values to our running total. 
+        In this case, as long as <span><code class="language-python">a_number</code></span> is less than or equal to the <span><code class="language-python">a_bound</code></span>, we should keep going.</p>
+    <p>Here is a new version of the summation program that uses a <span><code class="language-python">while</code></span> statement. Watch how the varibles change as
+        the program repeats lines 4, 5, and 6.
+    </p>
+    <p><iframe width="100%" height="400" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a_bound%20%3D%205%0Athe_sum%20%20%3D%200%0Aa_number%20%3D%201%0Awhile%20a_number%20%3C%3D%20a_bound%3A%0A%20%20the_sum%20%3D%20the_sum%20%2B%20a_number%0A%20%20a_number%20%3D%20a_number%20%2B%201%0A%0Aprint%28the_sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+    <p>You can almost read the <span><code class="language-python">while</code></span> statement as if it were in natural
+        language. It means, while aNumber is less than or equal to aBound, continue executing the body of the loop.
+        Within the body, each time, update theSum using the accumulator pattern and increment aNumber. After the body of
+        the loop, we go back up to the condition of the while and reevaluate it. When aNumber becomes greater than
+        aBound, the condition fails and flow of control continues to the return statement.</p>
+    <p>More formally, here is the flow of execution for a <span><code class="language-python">while</code></span> statement:</p>
+    <ol>
+        <li>Evaluate the condition, yielding <span><code class="language-python">False</code></span> or <span><code class="language-python">True</code></span>.</li>
+        <li>If the condition is <span><code class="language-python">False</code></span>, exit the <span><code class="language-python">while</code></span> statement and continue execution at the next statement.</li>
+        <li>If the condition is <span><code class="language-python">True</code></span>, execute each of the statements in the body and then go back to step 1.</li>
+    </ol>
+    <p>The body consists of all of the statements below the header with the same indentation.</p>
+    <p>This type of flow is called a <strong>loop</strong> because the third step loops back around to the top. Notice
+        that if the condition is <span><code class="language-python">False</code></span> the first time through the loop, the statements inside the loop are never
+        executed.</p>
+    <p><strong>Warning:</strong> Though Python's while is very close to the English "while", there is an important
+        difference: In English "while X, do Y", we usually assume that immediately after X becomes false, we stop with
+        Y. In Python there is not an immediate stop: After the initial test, any following tests come only after the
+        execution of the whole body, even if the condition becomes false in the middle of the loop body.</p>
+    <p>The body of the loop should change the value of one or more variables so that eventually the condition becomes
+        <span><code class="language-python">False</code></span> and the loop terminates. Otherwise the loop will repeat forever. 
+        This is called an <strong>infinite loop</strong>. An endless source of amusement for computer scientists is the observation that the directions
+        written on the back of the shampoo bottle (lather, rinse, repeat) create an infinite loop.</p>
+    <p>In the case shown above, we can prove that the loop terminates because we know that the value of <span><code class="language-python">a_bound</code></span> is
+        finite, and we can see that the value of <span><code class="language-python">a_nound</code></span> increments each time through the loop, so eventually it will
+        have to exceed <span><code class="language-python">a_bound</code></span>. In other cases, it is not so easy to tell.</p>
+    <p>What you will notice here is that the <span><code class="language-python">while</code></span> loop is more work for you - the programmer - 
+        than the equivalent <span><code class="language-python">for</code></span> loop. When using a <span><code class="language-python">while</code></span> loop 
+        you have to control the loop variable yourself. You give it an initial value, test for completion, and then make sure you change 
+        something in the body so that the loop terminates.</p>
+    <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+        using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

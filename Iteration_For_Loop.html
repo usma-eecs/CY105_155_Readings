@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The For Loop</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>The <span><code class="language-python">for</code></span> loop repeats once for each item in a list or character in a string. Each item in turn is (re-)assigned to the <em>loop
+                variable</em>, and the body of the loop is executed. In Python, the <span><code class="language-python">for</code></span>
+                statement allows us to write programs that implement iteration. As a simple example, let's say
+                we have some friends, and we'd like to send them each an email inviting them to our party. We
+                don't quite know how to send email yet, so for the moment we'll just print a message for
+                each friend.</p>
+        
+        <p>In the image and example below, the red arrow points to what line of code is about to execute.
+            The <i>next</i> button tells it to run the next line of code. The <i>Print output</i> box at the top right is similar to the console window
+            in Replit. Finally, at the bottom left, you'll see the variable <span><code class="language-python">name</code></span> and the value
+            it's currently assigned. Watch what happens to the <span><code class="language-python">name's</code></span> value as you step through
+            the code using the <i>next</i> button. here is one line printed for each friend.
+            <p><img src="Images\Iteration_For_PyTutor.png"></p>
+            <p><iframe width="100%" height="400" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=for%20name%20in%20%5B%22Joe%22,%20%22Amy%22,%20%22Brad%22,%20%22Angelina%22,%20%22Zuki%22,%20%22Thandi%22,%20%22Paris%22%5D%3A%0A%20%20print%28f%22Hi%20%7Bname%7D.%20Please%20come%20to%20my%20party%20on%20Saturday%22%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>    
+            <p>Here's how it works:</p>
+        <ul>
+            <li><span><code class="language-python">name</code></span> in this <span><code class="language-python">for</code></span> 
+                statement is called the <strong>loop variable</strong>.
+            </li>
+            <li>The list of names in the square brackets is called a Python <strong>list</strong>. Lists are very useful.
+                We will have much more to say about them later.</li>
+            <li>Line 2 is the <strong>loop body</strong>. The loop body is always indented. The indentation determines
+                exactly what statements are "in the loop". The loop body is performed one time for each name in the
+                list.</li>
+            <li>On each <strong>iteration</strong> or pass of the loop, a check is done to see if there are still more items to
+                be processed. If there are none left (this is called the <i>terminating condition</i> of the
+                loop), the loop has finished. Program execution continues at the next statement after the loop body.
+            </li>
+            <li>If there are items still to be processed, the loop variable is updated to refer to the next item in the
+                list. This means, in this case, that the loop body is executed here 7 times, and each time 
+                <span><code class="language-python">name</code></span> will be assigned the name of a different friend.</li>
+            <li>At the end of each execution of the body of the loop, Python returns to the <span><code class="language-python">for</code></span> 
+                statement, to see if there are more items to be handled.</li>
+        </ul>
+        <p>Below we see an example of using a <span><code class="language-python">for</code></span> loop to repeat the same turtle actions, simplifying our program.
+         Complete the program to repeat the steps 5 times.</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationFor2"></iframe></p>
+        <p>We can use the <span><code class="language-python">for</code></span> loop to implement an <strong>accumulator pattern </strong>(we'll discuss this more
+            shortly). For example, to compute the sum of the first <span class = "emph">n</span> integers, we could create a <span><code class="language-python">for</code></span> loop using
+            the range to produce the numbers <span><code class="language-python">1</code></span> through <span><code class="language-python">a_bound</code></span>. Using the 
+            <strong>accumulator pattern</strong>, we can start with a running total variable initialized to <span class = "emph">0</span> and on each iteration, 
+            add the current value of the <strong>loop variable</strong>. A program to compute this sum is shown below.</p>
+        <p><iframe width="100%" height="400" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=a_bound%20%3D%20int%28float%28input%28%22Enter%20a%20number%20to%20sum%20to%3A%20%22%29%29%29%0Athe_sum%20%3D%200%0Afor%20a_number%20in%20range%281,%20a_bound%20%2B%201%29%3A%0A%20%20the_sum%20%3D%20the_sum%20%2B%20a_number%0A%0Aprint%28the_sum%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+        <p>To review, the variable <span><code class="language-python">the_sum</code></span> is called the <strong>accumulator</strong>. It is initialized to zero before we start the loop. The loop variable, 
+            <span><code class="language-python">a_number</code></span> will take on the values produced by the <span><code class="language-python">range(1, a_bound + 1)</code></span> 
+            function call. Note that this produces all the integers from <span><code class="language-python">1</code></span> up to the value of <span><code class="language-python">a_bound</code></span>. If we had not added 1 to aBound, the range would have stopped one
+            value short since range does not include the upper bound.</p>
+        <p>The assignment statement, <span><code class="language-python">the_sum = the_sum + a_number</code></span>, updates <span><code class="language-python">the_sum</code></span>
+            each time through the loop. This accumulates the running total. Finally, we print the value of the accumulator.</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

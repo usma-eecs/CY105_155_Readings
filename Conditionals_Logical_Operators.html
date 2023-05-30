@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Logical Operators</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>There are three <strong>logical operators</strong>: <span><code class="language-python">and</code></span>,
+            <span><code class="language-python">or</code></span>, and <span><code
+                    class="language-python">not</code></span>. The semantics
+            (meaning) of these operators is similar to their meaning in English. For example, <span><code
+                    class="language-python">x &gt; 0 and x &lt; 10</code></span> is <span><code
+                    class="language-python">True</code></span>
+            only if x is greater than 0 <em>and</em> at the same time, x is less
+            than 10. How would you describe this in words? You would say that x is between 0 and 10, not including the
+            endpoints.
+        </p>
+        <p>Similarly, <span><code class="language-python">n % 2 == 0 or n % 3 == 0</code></span> is <span><code
+                    class="language-python">True</code></span> if <em>either</em> of the conditions is <span><code
+                    class="language-python">True</code></span>, that is, if the
+            number is divisible by 2 <em>or</em> divisible by 3. In this case, one, or the other, or both of
+            the parts has to be <span><code class="language-python">True</code></span> for the result to be <span><code
+                    class="language-python">True</code></span>.</p>
+        <p>Finally, the <span><code class="language-python">not</code></span> operator negates a boolean expression, so
+            <span><code class="language-python">not x &gt; y</code></span> is <span><code class="language-python">True</code></span>
+             if <span><code class="language-python">x &gt; y</code></span> is <span><code class="language-python">False</code></span>, that is, if x is less than or equal to y.</p>
+        <iframe width="100%" height="600px"
+            src="https://replit.com/team/CY105-155-Readings/ConditionalsLogicalOperators"></iframe>
+        <h3>Common Mistake!</h3>
+        <p>There is a very common mistake that occurs when programmers try to write boolean expressions. For example,
+            what if we have a variable number and we want to check to see if its value is 5, 6, or 7. In words
+            we might say: "number equal to 5 or 6 or 7". However, if we translate this into
+            Python, <span><code class="language-python">number == 5 or 6 or 7</code></span>, it will not be correct. The or operator must join the results of three
+            equality checks. The correct way to write this is <span><code class="language-python">number == 5 or number == 6 or number == 7</code></span>. This may
+            seem like a lot of typing but it is absolutely necessary. You cannot take a shortcut.</p>
+        <p>Here we will show two brief examples.</p>
+        <p>1. Assume that you want to check if a someone is a teenager. You would need a check that they are between 13
+            and 19 years old. Your conditional statement may look like this:</p>
+        <pre><code class="language-python">(13 &lt;= Age) and (Age &lt;= 19)</code></pre>
+        <p>From the order of precedence given in the previous section, you should see that Python will first check the
+            comparison on the left, then the comparison on the right, and finally use the <em>and</em> operator to see
+            if both checks returned a boolean <span><code class="language-python">True</code></span>.</p>
+        <p>2. Assume that you are playing a game with three dice: two regular six-sided die and one colored die. If
+            you roll three or less on both of the numbered dice or roll a green on the colored die, you win some prize.
+            In that case, our conditional statement could look like this:</p>
+        <pre><code class="language-python">(die1 == "green") or ((die2 &lt;= 3) and (die3 &lt;= 3))</code></pre>
+        <p>You can read this statement as: if die1 is colored green OR if die2 is less than or equal to three AND die3
+            is less than or equal to three, return a <span><code class="language-python">True</code></span> otherwise return a <span><code class="language-python">False</code></span>.</p>
+        <p>Finally, you can combine as many comparisons as you wish using additional <span><code class="language-python">and</code></span>/<span><code class="language-python">or</code></span> operators.</p>
+
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally
+            created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

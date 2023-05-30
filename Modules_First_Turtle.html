@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Our First Turtle Program</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>There are many <strong>modules</strong> in Python that provide very powerful features that we can use in our own
+            programs. Some of these can send email or fetch web pages. Others allow us to perform complex mathematical
+            calculations. Here, we will introduce a module that allows us to create a data object called a
+            <strong>turtle</strong> that can be used to draw pictures.</p>
+        <p>Turtle graphics, as it is known, is based on a very simple metaphor. Imagine that you have a turtle that
+            understands English. You can tell your turtle to do simple commands such as go forward and turn right. As
+            the turtle moves around, if its tail is down touching the ground, it will draw a line (leave a trail behind)
+            as it moves. If you tell your turtle to lift up its tail it can still move around but will not leave a
+            trail. As you will see, you can make some pretty amazing drawings with this simple capability.</p>
+        <p><strong>Note:</strong> The turtles are fun, but the real purpose of the chapter is to teach ourselves a
+            little more Python and to develop our theme of computational thinking, or thinking like a computer
+            scientist. Most of the Python covered here will be explored in more depth later.</p>
+        <p>Let's try a couple of lines of Python code to create a new turtle and start drawing a simple figure
+            like a rectangle. We will refer to our first turtle using the variable name alex, but remember that you can
+            choose any name you wish as long as you follow the naming rules from the previous chapter.</p>
+        <p>The program as shown will only draw the first two sides of the rectangle. After line 5 you will have a
+            straight line going from the center of the drawing canvas towards the right. After line 7, you will have a
+            canvas with a turtle and a half drawn rectangle. Press the run button to try it and see. Now see if you can
+            complete the other two sides of the rectangle!</p>
+        <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/ModulesTurtleFirst1"></iframe>
+        <p>Here are a couple of things you'll need to understand about this program.</p>
+        <p>The first line tells Python to load a <strong>module</strong> named <span
+                class = "emph">turtle</span>. That module brings us two new types
+            that we can use: the <span class = "emph">Turtle</span> type, and the
+            <span class = "emph">Screen</span> type. The dot notation <span><code class="language-python">turtle.Turtle()</code></span> 
+            means "The Turtle type that is defined within the turtle module". (Remember that Python is case sensitive, so the module
+            name, <span><code class="language-python">turtle</code></span>, with a lowercase t, is
+            different from the type <span><code class="language-python">Turtle</code></span> because of
+            the uppercase T.)</p>
+        <p>We then create and open what the turtle module calls a screen (we would prefer to call it a window), 
+            which we assign to variable <span><code class="language-python">wn</code></span>. Every window contains a
+            <strong>canvas</strong>, which is the area inside the window on which we can draw.</p>
+        <p>In line 4 we create a turtle. The variable <span><code class="language-python">alex</code></span> 
+            is made to refer to this turtle. These first three lines set us up so that we are ready to do some drawing.</p>
+        <p>In lines 5-7, we instruct the <strong>object</strong> <span><code class="language-python">alex</code></span> to move and to turn. We do this by
+            <strong>invoking</strong> or activating alex's <strong>methods</strong> - these are the
+            instructions that all turtles know how to respond to. Here the dot indicates that the methods invoked belong
+            to and refer to the object <span><code class="language-python">alex</code></span>.</p>
+        <p>An object can have various methods - things it can do - and it can also have
+            <strong>attributes</strong> - (sometimes called <em>properties</em>). For example, each turtle has a
+            <em>color</em> attribute. The method invocation <span><code class="language-python">alex.color("red")</code></span> will make <span><code class="language-python">alex</code></span>
+            red and the line that it draws will be red too.</p>
+        <p>The color of the turtle, the width of its pen (tail), the position of the turtle within the window, which way
+            it is facing, and so on are all part of its current <strong>state</strong>. Similarly, the window object has
+            a background color which is part of its state.</p>
+        <p>Quite a number of methods exist that allow us to modify the turtle and window objects. In the example below,
+            we show just show a couple and have only commented those lines that are different from the previous example.
+            Note also that we have decided to call our turtle object <span><code class="language-python">tess</code></span> to
+            emphasize that you can name the turtles almost anything you want.</p>
+        <p>See if you can complete tess's triangle!</p>
+        <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/ModulesTurtleFirst2"></iframe>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Random Module</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>We often want to use <strong>random numbers</strong> in programs. Here are a few typical uses:</p>
+        <ul>
+            <li>To play a game of chance where the computer needs to throw some dice, pick a number, or flip a coin,
+            </li>
+            <li>To shuffle a deck of playing cards randomly,</li>
+            <li>To randomly allow a new enemy spaceship to appear and shoot at you,</li>
+            <li>To simulate possible rainfall when we make a computerized model for estimating the environmental impact
+                of building a dam,</li>
+            <li>For encrypting your banking session on the Internet.</li>
+        </ul>
+        <p>Python provides the random module that helps with tasks like this. You can take a look at it in the
+            documentation at <a class="external"
+                href="https://docs.python.org/3/library/random.html#functions-for-integers" target="_blank"
+                rel="noopener">https://docs.python.org/3/library/random.html#functions-for-integers</a></p>
+        <p>Here are the key things we can do with it:</p>
+        <pre><code class="language-python">random.randint(a , b)</code></pre>
+        <p>Return a random integer <em>N</em> such that  <span class = "emph">a &gt;= N &gt;= b</span></p>
+        <pre><code class="language-python">random.choice(seq)</code></pre>
+        <p>Return a random element from the non-empty sequence <em>seq</em>.  For
+            example, <span><code class="language-python">random.choice(['red','white','blue'])</code></span> returns one of the three input colors
+            randomly.</p>
+        <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/ModulesRandom1"></iframe>
+        <p>Press the run button a number of times. Note that the values
+            change each time. These are random numbers.</p>
+        <p>The <span><code class="language-python">random.random()</code></span> function returns a floating point number in the range [0.0, 1.0) - the square
+            bracket means "closed interval on the left" and the round parenthesis means "open interval
+            on the right". In other words, 0.0 is possible, but all returned numbers will be strictly less than
+            1.0. It is usual to scale the results after calling this method, to get them into a range suitable for your
+            application.</p>
+        <p>In the case shown here, we've converted the result of the method call to a number in the range [0.0,
+            5.0). Once more, these are uniformly distributed numbers - numbers close to 0 are just as likely to
+            occur as numbers close to 0.5, or numbers close to 1.0. If you continue to press the run button you will see
+            random values between 0.0 and up to but not including 5.0.</p>
+            <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/ModulesRandom2"></iframe>
+        <p>It is important to note that random number generators are
+            based on a <strong>deterministic</strong> algorithm - repeatable and predictable. So
+            they're called<strong> pseudo-random</strong> generators - they are not genuinely
+            random. They start with a <em>seed</em> value. Each time you ask for another random number,
+            you'll get one based on the current seed attribute, and the state of the seed (which is one of the
+            attributes of the generator) will be updated. The good news is that each time you run your program, the seed
+            value is likely to be different meaning that even though the random numbers are being created
+            algorithmically, you will likely get random behavior each time you execute.</p>
+
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally
+            created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

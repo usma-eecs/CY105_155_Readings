@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Way of the Program</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>The programming language you will be learning is Python. Python is an example of a high-level language;
+            other <strong>high-level languages</strong> you might have heard of are C++, PHP, and Java.
+            <br /><br />As you might infer from the name high-level language, there are also <strong>low-level
+                languages</strong>, sometimes referred to as machine languages or assembly languages. Machine language
+            is the encoding of instructions in binary so that they can be directly executed by the computer. Assembly
+            language uses a slightly easier format to refer to the low level instructions. Loosely speaking, computers
+            can only execute programs written in low-level languages. To be exact, computers can actually only execute
+            programs written in machine language. Thus, programs written in a high-level language (and even those in
+            assembly language) have to be processed before they can run. This extra processing takes some time, which is
+            a small disadvantage of high-level languages. However, the advantages to high-level languages are enormous.
+            <br /><br />First, it is much easier to program in a high-level language. Programs written in a high-level
+            language take less time to write, they are shorter and easier to read, and they are more likely to be
+            correct. Second, high-level languages are <strong>portable</strong>, meaning that they can run on
+            different kinds of computers with few or no modifications. Low-level programs can run on only one kind of
+            computer and have to be rewritten to run on another. <br /><br />Due to these advantages, almost all
+            programs are written in high-level languages. Low-level languages are used only for a few specialized
+            applications. <br /><br />Two kinds of programs process high-level languages into low-level
+            languages: <strong>interpreters</strong> and <strong>compilers</strong>. An interpreter reads
+            a high-level program and executes it, meaning that it does what the program says. It processes the program a
+            little at a time, alternately reading lines and performing computations.</p>
+        <p>A compiler reads the program and translates it completely before the program starts running. In this case,
+            the high-level program is called the <strong>source code</strong>. The compiler translates the source
+            code into an <strong>executable</strong>. Once a program is compiled, you can execute it repeatedly
+            without further translation.</p>
+        <p><img src="Images/IntroToProgramming_03_SourceToExe.png"/></p>
+        <p><img src="Images/IntroToProgramming_03_Exe.png" alt="ProgLang_compile_1.png"/></p>
+        <p><br />Many modern languages use both processes. They are first compiled into a lower level language,
+            called <strong>byte code</strong>, and then interpreted by a program called a <strong>virtual
+                machine</strong>. Python uses both processes, but because of the way programmers interact with it, it is
+            usually considered an interpreted language. <br /><br />You can write an entire program by placing lines of
+            Python instructions in a file and then use the interpreter to execute the contents of the file as a whole.
+            Such a file is often referred to as <strong>source code</strong>. For example, we used a text editor to
+            create a source code file named firstprogram.py with the following contents:</p>
+        <pre><code class="language-python">print("My first program adds two numbers, 2 and 3:")
+print(2 + 3)</code></pre>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

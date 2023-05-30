@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Functions can Call Other Functions</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>It is important to understand that each of the functions we write can be used and called from other functions
+            we write. This is one of the most important ways that computer scientists take a large problem and break it
+            down into a group of smaller problems. This process of breaking a problem into smaller subproblems is called
+            <strong>functional decomposition</strong>.
+        </p>
+        <p>Here's a simple example of functional decomposition using two functions. The first function called square
+            simply computes the square of a given number. The second function called sum_of_squares makes use of square
+            to compute the sum of three numbers that have been squared.</p>
+        <p><iframe width="800" height="500" frameborder="0"
+                src="https://pythontutor.com/iframe-embed.html#code=def%20square%28x%29%3A%0A%20%20y%20%3D%20x%20*%20x%0A%20%20return%20y%0A%20%20%20%20%0Adef%20sum_of_squares%28x,%20y,%20z%29%3A%0A%20%20a%20%3D%20square%28x%29%0A%20%20b%20%3D%20square%28y%29%0A%20%20c%20%3D%20square%28z%29%0A%20%20return%20a%20%2B%20b%20%2B%20c%0A%20%20%20%20%0Aa%20%3D%20-5%0Ab%20%3D%202%0Ac%20%3D%2010%0Aresult%20%3D%20sum_of_squares%28a,%20b,%20c%29%0Aprint%28result%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false">
+            </iframe></p>
+        <p>Even though this is a pretty simple idea, in practice this
+            example illustrates many very important Python concepts, including local and global variables along with
+            parameter passing. Note that when you step through this example, Python Tutor bolds line 1 and line 5 as the
+            functions are defined. The body of <span><code class="language-python">square()</code></span> is not
+            executed until it is called from the sum_of_squares
+            function for the first time on line 6. Also notice that when <span><code
+                    class="language-python">square()</code></span> is called there are two groups of local
+            variables, one for <span><code class="language-python">square()</code></span> and one for <span><code
+                    class="language-python">sum_of_squares()</code></span>. As you step through you will notice that x,
+            and y are
+            local variables in both functions and may even have different values. This illustrates that even though they
+            are named the same, they are in fact, very different.</p>
+        <p>Now we will look at another example that uses two functions. This example illustrates an important computer
+            science problem solving technique called <strong>generalization</strong>. Assume we want to write a function
+            to draw a square. The generalization step is to realize that a square is just a special kind of rectangle.
+        </p>
+        <p>To draw a rectangle we need to be able to call a function with different arguments for width and height.
+            Unlike the case of the square, we cannot repeat the same thing 4 times, because the four sides are not
+            equal. However, it is the case that drawing the bottom and right sides are the same sequence as drawing the
+            top and left sides. So we eventually come up with this rather nice code that can draw a rectangle.</p>
+        <pre><code class="language-python">def drawRectangle(t, w, h):
+    """Get turtle t to draw a rectangle of width w and height h."""
+    for i in range(2):
+        t.forward(w)
+        t.left(90)
+        t.forward(h)
+        t.left(90)
+</code></pre>
+        <p>The parameter names are chosen as single letters for conciseness. In real programs, we will insist on better
+            variable names than this. The point is that the program doesn't "understand" that you're drawing
+            a rectangle or that the parameters represent the width and the height. Concepts like rectangle, width, and
+            height are meaningful for humans. They are not concepts that the program or the computer understands.</p>
+        <p><em>Thinking like a computer scientist</em> involves looking for patterns and relationships. In the code
+            above, we've done that to some extent. We did not just draw four sides. Instead, we spotted that we could
+            draw the rectangle as two halves and used a loop to repeat that pattern twice.</p>
+        <p>But now we might spot that a square is a special kind of rectangle. A square simply uses the same value for
+            both the height and the width. We already have a function that draws a rectangle, so we can use that to draw
+            our square.</p>
+        <pre><code class="language-python">def drawSquare(tx, sz):        # a new version of drawSquare
+    drawRectangle(tx, sz, sz)
+</code></pre>
+        <p>Here is the entire example with the necessary set up code.</p>
+        <iframe width="100%" height="600px"
+            src="https://replit.com/team/CY105-155-Readings/WritingFunctionsMultilevel2"></iframe>
+        <p>There are some points worth noting here:</p>
+        <ul>
+            <li>Functions can call other functions.</li>
+            <li>Rewriting <span><code class="language-python">drawSquare()</code></span> like this captures the
+                relationship that we've spotted.</li>
+            <li>A caller of this function might say <span><code
+                        class="language-python">drawSquare(tess, 50)</code></span>. The parameters of this function,
+                <span class="emph">tx</span> and <span class="emph">sz</span>, are assigned the values of the <span
+                    class="emph">tess</span> object,
+                and the integer 50 respectively.</li>
+            <li>In the body of the function, <span class="emph">tx</span> and <span class="emph">sz</span> are just like
+                any other variable.</li>
+            <li>When the call is made to <span><code class="language-python">drawRectangle()</code></span>, the values
+                in variables <span class="emph">tx</span> and <span class="emph">sz</span> are fetched first, then the
+                call happens. So as we enter the top of function
+                <span><code class="language-python">drawRectangle()</code></span>, its variable <span
+                    class="emph">t</span> is assigned the <span
+                    class="emph">tess</span> object, and <span
+                    class="emph">w</span> and <span
+                    class="emph">h</span> in that function are both given
+                the value 50.
+            </li>
+        </ul>
+        <p>So far, it may not be clear why it is worth the trouble to create all of these new functions. Actually, there
+            are a lot of reasons, but this example demonstrates two:</p>
+        <ol>
+            <li>Creating a new function gives you an opportunity to name a group of statements. Functions can simplify a
+                program by hiding a complex computation behind a single command. The function (including its name) can
+                capture your mental chunking, or <em>abstraction</em>, of the problem.</li>
+            <li>Creating a new function can make a program smaller by eliminating repetitive code.</li>
+            <li>Sometimes you can write functions that allow you to solve a specific problem using a more general
+                solution.</li>
+        </ol>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

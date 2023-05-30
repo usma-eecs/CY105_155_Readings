@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Functions that Return Values</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>Most functions require arguments, values that control how the function does its job. For example, if you want
+            to find the absolute value of a number, you have to indicate what the number is. Python has a built-in
+            function for computing the absolute value:</p>
+        <pre><code class="language-python">print(abs(5)) # displays 5
+print(abs(-5)) #also displays 5</code></pre>
+        <p>In this example, the arguments to the <span><code class="language-python">abs()</code></span> function are <span class = "emph">5</span> and <span class = "emph">-5</span>.</p>
+        <p>Some functions take more than one argument. For example the math module contains a function called pow which
+            takes two arguments, the base and the exponent. Another built-in function that takes more than one argument
+            is max.</p>
+        <pre><code class="language-python">import math
+#math.pow()
+print(math.pow(2, 3)) # 8.0
+print(math.pow(7, 4)) # 2401.0
+#max()
+print(max(7, 11)) # 11
+print(max(4, 1, 17, 2, 12)) #17
+print(max(3 * 11, 5 ** 3, 512 - 19, 1024 ** 0)) #503</code></pre>
+        <p>The <span><code class="language-python">max()</code></span> function can be sent any number of arguments, 
+            separated by commas, and will return the maximum value
+            sent. The arguments can be either simple values or expressions. In the last example, <span class = "emph">503</span> is returned, since
+            it is larger than <span class = "emph">33</span>, <span class = "emph">125</span>, and <span class = "emph">1</span>. Note that max also works on lists of values.</p>
+        <p>Furthermore, functions like <span><code class="language-python">range()</code></span>, <span><code class="language-python">int()</code></span>, 
+            <span><code class="language-python">abs()</code></span> all return values that can be used to build more complex expressions.</p>
+        <p>So an important difference between these functions and one like drawSquare is
+            that <span class = "emph">drawSquare</span> was not executed because we wanted it to compute a value - on the contrary,
+            we wrote <span class = "emph">drawSquare</span> because we wanted it to execute a sequence of steps that caused the turtle to
+            draw a specific shape.</p>
+        <p>Functions that return values are sometimes called<strong> fruitful functions</strong>. A chunk that doesn't return a value is called
+            a <em>non-fruitful</em> function.</p>
+        <p>Fruitful functions still allow the user to provide information (arguments). However there is now an
+            additional piece of data that is returned from the function.</p>
+        <img src="Images/Functions_02_FruitfulBlackBox.png" />
+        <p>How do we write our own fruitful function? Let's start by creating a very simple mathematical function
+            that we will call square. The square function will take one number as a parameter and return the result
+            of squaring that number. Here is the black-box diagram with the Python code following.</p>
+        <img src="Images/Functions_02_SquareBlackBox.png" />
+        <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/WritingFunctionsReturns1"></iframe>
+        <p>The <span><code class="language-python">return</code></span> statement is followed
+            by an expression which is evaluated. Its result is returned to the caller as the "fruit" of
+            calling this function. Because the <span><code class="language-python">return</code></span> statement can contain any 
+            Python expression we could have avoided
+            creating the temporary variable <span class = "emph">squared</span> and simply used <span><code class="language-python">return base**2</code></span>. Try
+            modifying the <span class = "emph">square</span> function above to see that this works just the same. On the other hand,
+            using temporary variables like <span class = "emph">squared</span> in the program above makes debugging
+            easier. These temporary variables are examples of <strong>local variables</strong>, pursued further in
+            the next section.</p>
+        <p>Notice something important here. The name of the variable we pass as an argument - <span class = "emph">to_square</span> - has
+            nothing to do with the name of the formal parameter - <span class = "emph">base</span>. It is as if <span><code class="language-python">base = to_square</code></span> is executed when
+            <span class = "emph">square</span> is called. It doesn't matter what the value was named in the caller. In <span class = "emph">square</span>, it's name
+            is <span class = "emph">base</span>. You can see this very clearly here: 
+            <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20square%28base%29%3A%0A%20%20squared%20%3D%20base%20**%202%0A%20%20return%20squared%0A%0Ato_square%20%3D%2010%0Aresult%20%3D%20square%28to_square%29%0Aprint%28%22The%20result%20of%22,%20to_square,%20%22squared%20is%22,%20result%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=5&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe>
+            The <strong>global variables</strong> (variables defined outside of any function) and the local
+            variables for the <span class = "emph">square</span> function are in separate boxes.</p>
+        <p>Step through the example, notice that the <span><code class="language-python">return</code></span> statement not only
+            causes the function to <strong>return</strong> a value, but it also returns the flow of control back to
+            the place in the program where the function call was made.</p>
+        <p>Another important thing to notice as you step through this pythontutor demonstration is the movement of the
+            red and green arrows. Pythontutor uses these arrows to show you where it is currently executing. Recall that
+            the red arrow always points to the next line of code that will be executed. The light green arrow points to
+            the line that was just executed in the last step.</p>
+        <p>When you first start running this pythontutor demonstration you will notice that there is only a red arrow
+            and it points to line 1. This is because line 1 is the next line to be executed and since it is the first
+            line, there is no previously executed line of code.</p>
+        <p>When you click on the <em>next &gt;</em> button, notice that the red arrow moves to line 5, skipping lines 2 and 3 of
+            the function (and the light green arrow has now appeared on line 1). Why is this? The answer is that
+            function definition is not the same as function execution. Lines 2 and 3 will not be executed until the
+            function is called on line 6. Line 1 defines the function and the name square is added to the global
+            variables, but that is all the def does at that point. The body of the function will be executed later.
+            Continue to click the <em>next &gt;</em> button to see how the flow of control moves from the call, back up to the
+            body of the function, and then finally back to line 7, after the function has returned its value and the
+            value has been assigned to <span class = "emph">result</span>.</p>
+        <p>Finally, there is one more aspect of function return values that should be noted. All Python functions return
+            the value <span><code class="language-python">None</code></span> unless there is an explicit return statement with a value other than None. Consider the
+            following common mistake made by beginning Python programmers. As you step through this example, pay very
+            close attention to the return value in the local variables listing. Then look at what is printed when the
+            function returns.</p>
+        <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/WritingFunctionsReturnsNone"></iframe>
+        <p>The problem with this function is that even though it prints the value of the square, that value will not be
+            returned to the place where the call was made. Since line 6 uses the return value as the right hand side of
+            an assignment statement, the evaluation of the function will be <span><code class="language-python">None</code></span>. In this
+            case, <span class = "emph">result</span> will refer to that value after the assignment statement and therefore the
+            result printed in line 7 is incorrect. Typically, functions will return values that can be printed or
+            processed in some other way by the caller.</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

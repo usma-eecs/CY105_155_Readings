@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>The Math Module</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>The math module contains the kinds of mathematical functions you would typically find on your calculator like
+            <span><code class="language-python">math.sqrt()</code></span> and <span><code class="language-python">math.pow()</code></span>
+            and some mathematical constants like <span><code class="language-python">math.pi</code></span> and <span><code class="language-python">math.e</code></span>. As we noted above, when
+            we import math, we create a reference to a module object that contains these elements.</p>
+        <p><img src="Images/Modules_MathRef.png"/></p>
+        <p>Here are some items from the math module  in action. If you want more information, you can check
+            out the <a class="inline_disabled" href="https://docs.python.org/3/library/math.html#module-math"
+                target="_blank" rel="noopener">Math Module Python Documentation</a>.</p>
+                <iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/ModulesMath"></iframe>
+        <p>Notice another difference between this module and our use
+            of turtle. In turtle we create objects (either Turtle or Screen) and call
+            methods on those objects. Remember that a turtle is a data object (recall <span class = "emph">alex</span>
+            and <span class="emph">tess</span>). We
+            need to create one in order to use it. When we say <span><code class="language-python">alex = turtle.Turtle()</code></span>,
+            we are calling the
+            constructor for the Turtle class which returns a single turtle object.</p>
+        <p>Mathematical functions do not need to be constructed. They simply perform a task. They are all housed
+            together in a module called math. Once we have imported the math module, anything defined there can be used
+            in our program. Notice that we always use the name of the module followed by a dot followed by the specific
+            item from the module. For example: <span><code class="language-python">math.sqrt()</code></span>. You can think of this as lastname.firstname where the
+            lastname is the module family and the firstname is the individual entry in the module.</p>
+        <p>If you have not done so already, take a look at the documentation for the math module.</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally
+            created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

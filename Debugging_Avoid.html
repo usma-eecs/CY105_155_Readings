@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>How to Avoid Debugging</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>Perhaps the most important lesson in debugging is that it is <strong>largely
+                avoidable</strong> - if you work carefully.</p>
+        <ol>
+            <li><strong>Identify a correct solution</strong> You must have a firm grasp on what constitutes a
+                correct solution - what the program should do in specific circumstances - what output should
+                be produced for some given input. You need to understand <strong>what</strong> you are trying
+                to accomplish but not necessarily <strong>how</strong> to do it. You can then identify whether
+                there remains work to do or bugs to correct. This is probably the single biggest piece of advice for
+                programmers at every level.</li>
+            <li><strong>Start Small</strong> It is tempting to sit down and crank out an entire program at once.
+                But, when the program - inevitably - does not work, you have a myriad of options for things
+                that might be wrong. Where to start? Where to look first? How to figure out what went wrong? I'll
+                get to that in the next section. So, start with something really small. Maybe just two lines and then
+                make sure that runs ok. Hitting the run button is quick and easy, and gives you immediate feedback about
+                whether what you have just done is ok or not. Another immediate benefit of having something small
+                working is that you have something to turn in. Turning in a small, incomplete program, is almost always
+                better than nothing.</li>
+            <li><strong>Keep improving</strong> it Once you have a small part of your program working the next step
+                is to figure out something small to add to it - how can you move closer to a correct solution. If
+                you keep adding small pieces of the program one at a time, it is much easier to figure out what went
+                wrong, as it is most likely that the problem is going to be in the new code you have just added. Less
+                new code means its easier to figure out where the problem is.</li>
+        </ol>
+        <p>This notion of <strong>Get something working and keep improving it</strong> is a mantra that you
+            can repeat throughout your career as a programmer. It's a great way to avoid the frustrations
+            mentioned above. Think of it this way. Every time you have a little success, your brain releases a tiny bit
+            of chemical that makes you happy. So, you can keep yourself happy and make programming more enjoyable by
+            creating lots of small victories for yourself.</p>
+        <p>Ok, let's look at a simple example problem</p>
+        <ol>
+            <li>Ask the user for the time now (in hours 0 - 23), and ask for the number of hours
+                to wait</li>
+            <li>Your program should output what the time will be on the clock when the alarm goes off. For example,
+                if <span class = "emph">current_time</span> is 8 and <span class = "emph">wait_time</span> is 5, <span class = "emph">final_time</span> should be 13 (1 pm).</li>
+        </ol>
+        <p>So, where to start? The problem requires two pieces of input from the user, so let's start there and
+            make sure we can get the data we need.</p>
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=current_time%20%3D%20input%28%22What%20is%20the%20current%20time%20%28in%20hours%29%3F%20%22%29%0Await_time%20%3D%20input%28%22How%20many%20hours%20do%20you%20want%20to%20wait%3F%20%22%29%0A%0Aprint%28current_time%29%0Aprint%28wait_time%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%2222%22,%225%22%5D&textReferences=false"> </iframe>
+        <p>So far so good. Now let's take the next step. We need to figure out what the time will be after waiting
+            <span class = "emph">wait_time</span> number of hours. A reasonable solution is to simply add wait_time to <span class = "emph">current_time</span> and print out
+            the result. So let's try that.</p>
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=current_time%20%3D%20input%28%22What%20is%20the%20current%20time%20%28in%20hours%29%3F%20%22%29%0Await_time%20%3D%20input%28%22How%20many%20hours%20do%20you%20want%20to%20wait%3F%20%22%29%0A%0Aprint%28current_time%29%0Aprint%28wait_time%29%0A%0Afinal_time%20%3D%20current_time%20%2B%20wait_time%0Aprint%28final_time%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%2222%22,%225%22%5D&textReferences=false"> </iframe>
+        <p> Hmm, you can see that something unexpected has happened. You would
+            not realize this was an error unless you first knew what the program was supposed to do.</p>
+        <p>This error was probably pretty simple to spot, because we printed out the value of final_time and
+            it is easy to see that the numbers were just concatenated together rather than added.</p>
+        <p>So what do we do about the problem? We will need to convert
+            both <span class = "emph">current_time</span> and <span class = "emph">wait_time</span> to int. At this stage of your programming
+            development, it can be a good idea to include the type of the variable in the variable name itself. So
+            let's look at another iteration of the program that does that, and the conversion to integer.</p>
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=current_time_str%20%3D%20input%28%22What%20is%20the%20current%20time%20%28in%20hours%29%3F%20%22%29%0Await_time_str%20%3D%20input%28%22How%20many%20hours%20do%20you%20want%20to%20wait%3F%20%22%29%0A%0Acurrent_time_int%20%3D%20int%28current_time_str%29%0Await_time_int%20%3D%20int%28wait_time_str%29%0A%0Afinal_time_int%20%3D%20current_time_int%20%2B%20wait_time_int%0Aprint%28final_time_int%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%2222%22,%225%22%5D&textReferences=false"> </iframe>
+        <p>Now, that's a lot better, and in fact depending on the hours
+            you chose, it may be exactly right. If you entered 8 for <span class = "emph">current_time</span> and 5 for <span class = "emph">wait_time</span> then 13 is
+            correct. But if you entered 22 (10 pm) for <span class = "emph">current_time</span> and 5 for <span class = "emph">wait_time</span> then the result of 27 is not
+            correct.</p>
+        <p>This illustrates an important aspect of <strong>testing</strong>: it is important to test your code on a
+            range of inputs. It is especially important to test your code on <strong>boundary conditions</strong>.
+            For this particular problem, you should test your program with <span class = "emph">current_time</span> of 0, 23, and some
+            values in between. You should test your <span class = "emph">wait_time</span> for 0, and some larger values. What about
+            negative numbers? Negative numbers don't make sense, and since we don't really have the tools to
+            deal with telling the user when something is wrong we will not worry about that just yet.</p>
+        <p>So to account for those numbers that are bigger than 23, we need one final step: using the modulus operator.
+        </p>
+        <iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=current_time_str%20%3D%20input%28%22What%20is%20the%20current%20time%20%28in%20hours%200-23%29%3F%20%22%29%0Await_time_str%20%3D%20input%28%22How%20many%20hours%20do%20you%20want%20to%20wait%3F%20%22%29%0A%0Acurrent_time_int%20%3D%20int%28current_time_str%29%0Await_time_int%20%3D%20int%28wait_time_str%29%0A%0Afinal_time_int%20%3D%20current_time_int%20%2B%20wait_time_int%0Afinal_answer%20%3D%20final_time_int%20%25%2024%0A%0Aprint%28%22The%20time%20after%20waiting%20is%3A%20%22,%20final_answer%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=2&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%2222%22,%225%22%5D&textReferences=false"> </iframe>
+        <p>Of course even in this simple progression, there are other
+            ways you could have gone astray. We'll look at some of those and how you track them down in the next
+            section</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally
+            created using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>While Loop Accumulator</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>Newton's method to calculate square roots is an example of an algorithm that repeats as long as it can
+            improve the result. It's just a variation of our accumulator pattern. Many algorithms work this way
+            and so require the use of indefinite iteration.</p>
+        <p>Here is another accumulator pattern program. It adds up the reciprocals of powers of two.</p>
+        <p><img src="Images/While_Accumulator.PNG"/></p>
+        <p>You may have studied this sequence in a math class and learned that the sum approaches but never reaches 2.0.
+            That is true in theory. However, when we implement this summation in a program, we see something different.
+        </p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/IterationWhileAccumulator"></iframe></p>
+        <p><strong>Modify the program...</strong></p>
+        <p>If the sum never reaches 2.0, the loop would never terminate. But the loop does stop! How many repetitions
+            did it make before it stopped?</p>
+        <p>On line 7 (not indented), print the value of <span><code class="language-python">a_number</code></span> and you will see.</p>
+        <p>But <strong>why</strong> did it reach 2.0? Are those math teachers wrong?</p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>

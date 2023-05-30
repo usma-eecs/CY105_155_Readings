@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Variables and Parameters are Local</title>
+    <script src="https://kit.fontawesome.com/c16180f477.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+        integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/xt256.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+</head>
+
+<body>
+    <div
+        style="margin: 0 0 25px; overflow: hidden; padding: 20px; background-color: #ebf5fb; border: 1px solid #DDDDDD;">
+        <p>An assignment statement in a function creates a <strong>local variable</strong> for the variable on
+            the left hand side of the assignment operator. It is called local because this variable only exists inside
+            the function and you cannot use it outside. For example, consider again the square function:</p>
+        <p><iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20square%28x%29%3A%0A%20%20y%20%3D%20x%20*%20x%0A%20%20return%20y%0A%0Az%20%3D%20square%2810%29%0Aprint%28y%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+        <p> Press the Next > button through to the end and you will see an error
+            message. When we try to use y on line 6 (outside the function) Python looks for a global variable named y
+            but does not find one. This results in the error: <span class="emph">Name Error: 'y' is not defined.</span></p>
+        <p>The variable <span class="emph">y</span> only exists while the function is being executed - we call this
+            its <strong>lifetime</strong>. When the execution of the function terminates (returns), the local
+            variables are destroyed. PythonTutor helps you visualize this because the local variables disappear after
+            the function returns. Go back and step through the statements paying particular attention to the variables
+            that are created when the function is called. Note when they are subsequently destroyed as the function
+            returns.</p>
+        <p>Formal parameters are also local and act like local variables. For example, the lifetime
+            of <span class="emph">x</span> begins when square is called, and its lifetime ends when the function completes its
+            execution.</p>
+        <p>So it is not possible for a function to set some local variable to a value, complete its execution, and then
+            when it is called again next time, recover the local variable. Each call of the function creates new local
+            variables, and their lifetimes expire when the function returns to the caller.</p>
+        <p>On the other hand, it is legal for a function to access a global variable. However, this is
+            considered <strong>bad form</strong> by nearly all programmers and should be avoided. Look at the
+            following, nonsensical variation of the square function.</p>
+        <p><iframe width="100%" height="600px" src="https://replit.com/team/CY105-155-Readings/WritingFunctionsGlobalVars1"></iframe></p>
+        <p>Although the <span><code class="language-python">badsquare()</code></span> function works, it is silly
+            and poorly written. We have done it here to illustrate an important rule about how variables are looked up
+            in Python. First, Python looks at the variables that are defined as local variables in the function. We call
+            this the <strong>local scope</strong>. If the variable name is not found in the local scope, then
+            Python looks at the global variables, or <strong>global scope</strong>. This is exactly the case
+            illustrated in the code above. <span class="emph">power</span> is not found locally in <span><code class="language-python">badsquare()</code></span>
+            but it does exist globally. The appropriate way to write this function would be to pass power as a parameter. For practice,
+            you should rewrite the <span><code class="language-python">badsquare()</code></span> example to have a second parameter called power.</p>
+        <p>Below is another nonsensical example of a square and a cube function. What happens when you try to run this
+            program?</p>
+        <p><iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20badsquare%28x%29%3A%0A%20%20y%20%3D%20x%20**%20power%0A%20%20return%20y%0A%0Adef%20badcube%28x%29%3A%0A%20%20y%20%3D%20x%20**%20power%0A%20%20return%20y%0A%0Apower%20%3D%202%0Aresult%20%3D%20badsquare%2810%29%0Aprint%28result%29%0A%0Apower%20%3D%203%0Aresult%20%3D%20badcube%2810%29%0Aprint%28result%29%0A%0Aresult%20%3D%20badsquare%2810%29%0Aprint%28result%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+        <p>There is another variation on this theme of local versus
+            global variables. Assignment statements in the <span style="text-decoration: underline;">local
+                function</span> cannot change variables defined <span style="text-decoration: underline;">outside
+            </span>the function, without further (discouraged) special syntax. Consider the following pythontutor
+            example:</p>
+        <p><iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20powerof%28x,p%29%3A%0A%20%20power%20%3D%20p%20%23%20Another%20dumb%20mistake%0A%20%20y%20%3D%20x%20**%20power%0A%20%20return%20y%0A%0Apower%20%3D%203%0Aresult%20%3D%20powerof%2810,2%29%0Aprint%28power%29%0Aprint%28result%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+        <p>What do you notice about the values of variable <span class="emph">power</span> in the local scope compared to the variable power in
+            the global scope?</p>
+        <p>The value of <span class="emph">power</span> in the local scope was different than the global scope. That is because in this
+            example power was used on the left hand side of the assignment statement <span><code class="language-python">power = p</code></span>. When a
+            variable name is used on the left hand side of an assignment statement Python creates a local variable. When
+            a local variable has the same name as a global variable we say that the local shadows the global.
+            A <strong>shadow</strong> means that the global variable cannot be accessed by Python because the
+            local variable will be found first. This is another good reason not to use global variables. As you can see,
+            it makes your code confusing and difficult to understand.</p>
+        <p>To cement all of these ideas even further lets look at one final example. Inside
+            the <span><code class="language-python">square()</code></span> function we are going to make an assignment to the parameter <span class="emph">x</span> There's
+            no good reason to do this other than to emphasize the fact that the parameter <span class="emph">x</span> is a local
+            variable. If you step through the example below you will see that although <span class="emph">x</span> is 0 in the
+            local variables for <span><code class="language-python">square()</code></span>, the <span class="emph">x</span> in the global scope remains 2. This is confusing to many
+            beginning programmers who think that an assignment to a formal parameter will cause a change to the value of
+            the variable that was used as the actual parameter, especially when the two share the same name. But this
+            example demonstrates that that is clearly not how Python operates.</p>
+        <p><iframe width="800" height="500" frameborder="0" src="https://pythontutor.com/iframe-embed.html#code=def%20square%28x%29%3A%0A%20%20y%20%3D%20x%20*%20x%0A%20%20x%20%3D%200%20%23%20assign%20a%20new%20value%20to%20parameter%20x%0A%20%20return%20y%0A%0Ax%20%3D%202%0Az%20%3D%20square%28x%29%0Aprint%28z%29&codeDivHeight=400&codeDivWidth=350&cumulative=false&curInstr=0&heapPrimitives=nevernest&origin=opt-frontend.js&py=3&rawInputLstJSON=%5B%5D&textReferences=false"> </iframe></p>
+        <p>&copy; Copyright 2018 LTC Tom Babbitt, Kyle King, Chip Schooler, Brad Miller, David Ranum, Originally created
+            using Runestone Interactive.</p>
+    </div>
+    <script src="scripts/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <script src="scripts/highlight.min.js"></script>
+</body>
+
+</html>
